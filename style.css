@@ -1,0 +1,350 @@
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    --primary-bg: #dbeafe;
+    --success: #10b981;
+    --success-dark: #059669;
+    --success-light: #a7f3d0;
+    --warning: #f59e0b;
+    --warning-dark: #d97706;
+    --warning-light: #fef3c7;
+    --error: #ef4444;
+    --error-dark: #dc2626;
+    --error-light: #fee2e2;
+    --night-mode: #6d28d9;
+    --night-mode-dark: #5b21b6;
+    --night-mode-bg: #ddd6fe;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --standard-hours-bg: #e3f2fd;
+    --extended-hours-bg: #fff8e1;
+    --calendar-btn: #8e24aa;
+    --calendar-btn-hover: #7b1fa2;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background: var(--gray-100);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+.header {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-200);
+}
+.header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+.header p {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    color: var(--gray-700);
+}
+.content {
+    padding: 2rem;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: var(--gray-900);
+    background-color: white;
+    transition: all 0.3s;
+}
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.participants-container {
+    margin-bottom: 1.5rem;
+}
+.participant {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.participant select {
+    flex: 1;
+}
+.night-option {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.night-option input {
+    transform: scale(1.2);
+}
+.night-option label {
+    font-size: 0.9rem;
+    color: var(--night-mode);
+    font-weight: 500;
+}
+.remove-participant {
+    padding: 0.5rem;
+    background: var(--error);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.remove-participant:hover {
+    opacity: 0.9;
+}
+.add-participant {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--success);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1.5rem;
+}
+.add-participant:hover {
+    opacity: 0.9;
+}
+.convert-button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.convert-button:hover {
+    background: var(--primary-dark);
+}
+.results {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--gray-50);
+    border-radius: 0.5rem;
+    display: none;
+}
+.results h3 {
+    margin-bottom: 1rem;
+    color: var(--gray-800);
+    font-size: 1.25rem;
+}
+.time-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.time-slot {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+.standard-hours {
+    background: var(--standard-hours-bg);
+    color: var(--gray-800);
+}
+.extended-hours {
+    background: var(--extended-hours-bg);
+    color: var(--gray-800);
+}
+.night-hours {
+    background: var(--night-mode-bg);
+    color: var(--night-mode-dark);
+}
+.suggestion {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+}
+.create-event-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--calendar-btn);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.create-event-btn:hover {
+    background: var(--calendar-btn-hover);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+.create-event-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.create-event-btn::before {
+    content: "📅";
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+.legend {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+    font-size: 0.875rem;
+    color: var(--gray-700);
+}
+.legend div {
+    margin-bottom: 0.25rem;
+}
+
+/* New Footer Styles */
+.app-footer {
+    background-color: var(--gray-50); /* Light background for footer */
+    color: var(--gray-600);
+    padding: 2rem 1rem; /* Consistent padding */
+    text-align: center;
+    border-top: 1px solid var(--gray-200);
+    margin-top: auto; /* Pushes footer to the bottom */
+    width: 100%; /* Span full width */
+}
+
+.footer-content {
+    max-width: 800px; /* Align with main container */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.made-with-love {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.made-with-love:hover {
+    color: var(--primary);
+}
+
+.heart {
+    display: inline-block;
+    margin: 0 0.3em;
+    color: var(--error); /* Red heart */
+    animation: pulse 1.5s infinite ease-in-out;
+    font-size: 1.1em; /* Slightly larger heart emoji */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.35);
+    }
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.25rem; /* Space between icons */
+}
+
+.footer-links a {
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-links svg {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .made-with-love {
+         margin-bottom: 0.5rem; /* Space when stacked */
+    }
+}
+
+/* Notification Styles (from JS, centralized here) */
+#notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    color: white;
+    max-width: 300px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+#notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
